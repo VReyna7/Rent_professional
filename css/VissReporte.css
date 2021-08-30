@@ -1,0 +1,138 @@
+*{
+    padding: 0;
+    margin: 0;
+    font-family: 'M PLUS 1p', sans-serif;
+}
+body{
+    font-family: 'PT Sans' , sans-serif;
+    background-image: linear-gradient(140deg,#B30917,#DB7D0A,#DB7D0A,#DB7D0A,#B30917,#DB7D0A,#B30917,#DB7D0A,#DB7D0A);
+    background-size: 500%;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    max-width: 100%;
+    background-position: center;
+}
+
+
+.Reportes{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: auto;
+    /*border: 1px solid #fcfcfc;
+    backdrop-filter: blur(15px);*/
+    border-radius: 3px;
+    color: black;
+    padding: 10px;
+}
+
+.ReportesCont{
+    padding-left: 10px;
+    background-color: rgba(255,255,255,0.4);
+    margin: 20px;
+    padding: 30px;
+    width: 40%;
+    backdrop-filter: blur(15px);
+    border:  1px solid white;
+    border-radius: 15px;
+
+}
+
+.ReportesCont h4{
+    font-weight: bold;
+    padding-bottom: 10px;
+
+}
+
+.ReportesCont button{
+    margin-top: 25px;
+    font-size: 15px;
+}
+
+.ReportesCont button a{
+    text-decoration: none;
+    color: white;
+
+}
+
+.butbanear a{
+    align-items: center;
+    justify-content: center;
+    
+}
+
+.butbanear{
+    margin-left: 15px;
+    background-color: rgba(255, 168, 56, 0.7);
+    color: white;
+    padding: 5px;
+    border-radius: 7px;
+    border-color: rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+}
+.butdelete{
+    background-color: rgba(249, 0, 0, 0.5);
+    color: white;
+    padding: 5px;
+    border-radius: 7px;
+    border-color: rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+}
+
+.Reportado{
+    margin-top: 20px;
+    font-size: 15px;
+}
+
+.UsuName{
+    margin-bottom: 15px;
+}
+
+@media only screen and (max-width: 1025px){
+
+    *{
+        overflow-y: scroll;
+    }
+    .Reportes{
+        width: 100%;
+    }
+
+    .ReportesCont{
+        width: 34%;
+        padding: 40px;
+    }
+
+    .butbanear{
+        margin: 0;
+}
+    .ReportesCont button{
+    margin-top: 25px;
+    font-size: 10px;
+}
+}
+
+@media only screen and (max-width: 1025px){
+
+    .ContKing{
+        top: 50px;
+    }
+}
+
+@media only screen and (max-width: 769px){
+     .ReportesCont{
+        width: 78%;
+        padding: 40px;
+    }
+
+    .Reportes{
+        margin-top: 60px;
+    }
+
+    .ReportesCont button{
+    margin-top: 25px;
+    font-size: 5px;
+}
+
