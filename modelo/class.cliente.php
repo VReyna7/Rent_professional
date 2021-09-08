@@ -85,6 +85,95 @@
 			}
 		}	
 
+		public function datosPubli($titulo,$datos,$precio){
+			if(!empty($titulo) && !empty($datos) && !empty($precio)){
+				$this->titulo = $titulo;	
+				$this->datos = $datos;
+				$this->precio = $precio;
+			}else{
+				throw new Exception("Complete todos los campos");
+			}
+		}
+
+		public function nuevaPubli(){
+			$conexion = new Conexion();
+			$dbh = $conexion->get_conexion();
+			$sql = "insert into publicaciones (titulo, descripcion, precio, idcliente) values (:titulo, :descripcion, :precio, :idcliente)";
+			$stmt = $dbh->prepare($sql);
+			$stmt->bindParam(":titulo",$this->titulo); 
+			$stmt->bindParam(":descripcion",$this->datos);
+			$stmt->bindParam(":precio",$this->precio);
+			$stmt->bindParam(":idcliente",$this->id);
+			if(!$stmt){
+				throw new Exception("Error. no se pudo guardar la publicacion");
+			}else{
+				$stmt->execute();
+			}
+		}
+
+		//Modifica el nombre
+		public function modifyName($nombre,$apellido){
+			$conexion = new Conexion;
+			$dbh = $conexion -> get_conexion();
+			$sql = "Update cliente set nombre = :nombre, apellido = :apellido where id=:id";
+			$stmt= $dbh -> prepare($sql);
+			$stmt -> bindParam(":nombre",$nombre);
+			$stmt -> bindParam(":apellido",$apellido);
+			$stmt->bindParam(":id",$this->id);
+			if(!$stmt){
+				throw new Exception("Error al modificar datos");
+			}else{
+				$stmt -> execute();
+			}
+		}
+
+		//Modificar el correo
+		public function modifyEmail($correo){
+			$conexion = new Conexion;
+			$dbh = $conexion -> get_conexion();
+			$sql = "Update cliente set correo=:correo where id=:id";
+			$stmt= $dbh -> prepare($sql);
+			$stmt -> bindParam(":correo",$correo);
+			$stmt->bindParam(":id",$this->id);
+			if(!$stmt){
+				throw new Exception("Error al modificar datos");
+			}else{
+				$stmt -> execute();
+			}
+		}
+
+		//Modificar la contraseña
+		public function modifyPass($contrasena){
+			$md5pass = md5($contrasena);
+			$conexion = new Conexion;
+			$dbh = $conexion -> get_conexion();
+			$sql = "Update cliente set contrasena=:contrasena where id=:id";
+			$stmt= $dbh -> prepare($sql);
+			$stmt -> bindParam(":contrasena",$md5pass);
+			$stmt->bindParam(":id",$this->id);
+			if(!$stmt){
+				throw new Exception("Error al modificar datos");
+			}else{
+				$stmt -> execute();
+			}
+		}
+
+		//Muestra el perfil cliente a las demas personas
+		public function mostrarPerfil($id){
+		$conexion = new Conexion();
+		$dbh = $conexion->get_conexion();
+		$sql = "Select * from cliente where id=:id";
+		$stmt = $dbh->prepare($sql);
+		$stmt->bindParam(":id",$id);
+		$stmt->execute();
+		$data = $stmt->fetch(PDO::FETCH_ASSOC);
+		$this->nombre = $data['nombre'];
+		$this->apellido = $data['apellido'];
+		$this->correo = $data['correo'];
+		$this->fechaNac = $data['fechaNac'];
+	}
+
+
 		//Todas la funciones get del cliente
 		public function getId(){
 			return $this->id;	

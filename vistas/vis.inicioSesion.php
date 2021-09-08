@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/inicioSesion.css">
+	<link rel="stylesheet" href="../css/inicioSesion.css?v=<?php echo time();?>"/>
     <title>Rent a Professional - RAP</title>
     <link href="https://fonts.googleapis.com/css2?family=M+PLUS+1p:wght@300&display=swap" rel="stylesheet">
 </head>
@@ -14,12 +14,12 @@
    		<div class="flex-caja">
            
            <div class="flex1">
-               <img src="../css/img/logo rent a professional.png" alt="Rent a Professional">
+               <img src="../css/img/logo.png" alt="Rent a Professional">
             </div>
            <div class="flex2">
                <input type="text" placeholder="Email:" id="email" name="mail" autocomplete="off">
                <br>
-               <input type="text" placeholder="Password:" id="pass" name="pass" autocomplete="off">
+               <input type="password" placeholder="Password:" id="pass" name="pass" autocomplete="off">
            </div>
            <div class="flex3">
                <input type="submit" value="Login" name="login">
@@ -31,7 +31,7 @@
 			?>
            <div class="flex4">
                <p>si aun no te registras: </p>
-               <a href="vis.registroProfesional.php"> Registrate</a>
+               <a href="../index.html"> Registrate</a>
            </div>
           
 		</div>
